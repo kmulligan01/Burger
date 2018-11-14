@@ -1,9 +1,24 @@
-body {
-    background-color: blue;
+html, body {
+    height: 100%;
 }
 
+html {
+    display: table;
+    margin: auto;
+}
 
-.container {
-    width: 50%;
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background: #FFC04C;
+    padding: 10px;
+}
 
+img {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    font-size: 60px;
 }

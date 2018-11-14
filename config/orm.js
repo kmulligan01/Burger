@@ -1,4 +1,4 @@
-// Import the MySQL connection object
+//Import the MySQL connection object
 var connection = require ('./connection.js');
 
 // Helper function for generating MySQL syntax
@@ -26,9 +26,9 @@ function objToSql(ob) {
 // Create the ORM object to perform SQL queries
 var orm = {
 	// Function that returns all table entries
-	selectAll: function(burgers, cb) {
+	selectAll: function(tableInput, cb) {
 		// Construct the query string that returns all rows from the target table
-		var queryString = "SELECT * FROM " + burgers + ";";
+		var queryString = "SELECT * FROM " + tableInput + ";";
 
 		// Perform the database query
 		connection.query(queryString, function(err, result) {
@@ -42,9 +42,9 @@ var orm = {
 	},
 
 	// Function that insert a single table entry
-	insertOne: function(burgers, cols, vals, cb) {
+	insertOne: function(table, cols, vals, cb) {
 		// Construct the query string that inserts a single row into the target table
-		var queryString = "INSERT INTO " + burgers;
+		var queryString = "INSERT INTO " + table;
 
 		queryString += " (";
 		queryString += cols.toString();
@@ -67,9 +67,9 @@ var orm = {
 	},
 
 	// Function that updates a single table entry
-	updateOne: function(burgers, objColVals, condition, cb) {
+	updateOne: function(table, objColVals, condition, cb) {
 		// Construct the query string that updates a single entry in the target table
-		var queryString = "UPDATE " + burgers;
+		var queryString = "UPDATE " + table;
 
 		queryString += " SET ";
 		queryString += objToSql(objColVals);
